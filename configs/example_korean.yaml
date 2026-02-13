@@ -1,0 +1,68 @@
+# 한국어 MUSHRA 평가 설정 예시
+# 사용법: http://localhost:8000?config=example_korean.yaml
+
+testname: MUSHRA 평가 실험
+testId: korean_mushra_example
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+
+pages:
+  # 시작 안내 페이지
+  - type: generic
+    id: welcome
+    name: Welcome
+    content: |
+      <p>본 실험에 참여해 주셔서 감사합니다.</p>
+      <ul>
+        <li><strong>Reference</strong>: 100점의 기준이 되는 GT 오디오 </li>
+        <li><strong>Cond</strong>: 평가 대상인 오디오</li>
+      </ul>
+      <p>아래 "Next" 버튼을 클릭하여 시작하세요.</p>
+
+  - type: mushra
+    id: item_1
+    name: 문항 1
+    content: 동일한 음성에 대한 여러 모델의 출력을 평가해주세요.
+    showWaveform: true          # 파형 표시
+    enableLooping: true         # 루핑 기능 활성화
+    reference: configs/resources/audio/mono_ref.wav
+    createAnchor35: true        # 3.5kHz anchor 자동 생성
+    createAnchor70: false       # 7kHz anchor 생성 안함
+    randomize: true             # 조건 순서 무작위화
+    showConditionNames: false   # 조건 이름 숨김
+    stimuli:
+      Model1: configs/resources/audio/mono_c1.wav
+      Model2: configs/resources/audio/mono_c2.wav
+      Model3: configs/resources/audio/mono_c3.wav
+
+  - type: mushra
+    id: item_2
+    name: 문항 2
+    content: 동일한 음성에 대한 여러 모델의 출력을 평가해주세요.
+    showWaveform: true
+    enableLooping: true
+    reference: configs/resources/audio/mono_ref.wav
+    createAnchor35: true
+    createAnchor70: false
+    randomize: true
+    showConditionNames: false
+    stimuli:
+      Model1: configs/resources/audio/mono_c1.wav
+      Model2: configs/resources/audio/mono_c2.wav
+      Model3: configs/resources/audio/mono_c3.wav
+
+  # 완료 페이지 (이름 입력 및 결과 제출)
+  - type: finish
+    name: 평가 완료
+    content: |
+      <h2>평가해주셔서 감사합니다!</h2>
+      <p>아래 정보를 입력한 후 제출해주세요.</p>
+    showResults: true           # 결과를 참가자에게 표시
+    writeResults: true          # 결과를 서버에 저장
+    questionnaire:
+      - type: text
+        label: 이름
+        name: name
+        optional: false         # 필수 입력
