@@ -1,208 +1,269 @@
-# Speech tokenizer recon 음성 품질 MUSHRA 평가 (영어)
-# 사용법: http://localhost:8000?config=lmspt_eng.yaml
-# mos-test와 동일하게 10개 음성, 모델마다 동일 10개로 다양하게 샘플링
-
-testname: Tokenizer Reconstruction MUSHRA 평가
+testname: Tokenizer Reconstruction MUSHRA 평가 (15 samples)
 testId: lmspt-eng
 bufferSize: 2048
 stopOnErrors: true
 showButtonPreviousPage: true
 remoteService: service/write.php
-
 pages:
-  # 시작 안내 페이지
-  - type: generic
-    id: welcome
-    name: Welcome
-    content: |
-      <p>본 실험에 참여해 주셔서 감사합니다.</p>
-      <ul>
-        <li><strong>Reference</strong>: 100점의 기준이 되는 GT(원본) 음성입니다.</li>
-        <li>문항당 <strong>5개</strong>의 음성에 대해 Reference를 기준으로 품질을 평가해 주세요.</li>
-        <li>1~100점 척도로 <strong>음성의 품질</strong>만 평가해 주세요.</li>
-      </ul>
-      <p>아래 "Next" 버튼을 클릭하여 시작하세요.</p>
+- type: generic
+  id: welcome
+  name: Welcome
+  content: "<p>본 실험에 참여해 주셔서 감사합니다.</p>\n<ul>\n  <li><strong>Reference</strong>: 100점의\
+    \ 기준이 되는 GT(원본) 음성입니다.</li>\n  <li>문항당 <strong>5개</strong>의 음성에 대해 Reference를\
+    \ 기준으로 품질을 평가해 주세요.</li>\n  <li>5개의 음성 중 하나는 Reference와 동일한 GT(원본) 음성입니다.</li>\n\
+    \  <li>Reference와 동일하다고 판단되는 음성에는 100점을 부여해 주세요.</li>\n  <li>1~100점 척도로 <strong>음성의\
+    \ 품질</strong>만 평가해 주세요.</li>\n</ul>\n<p>아래 \"Next\" 버튼을 클릭하여 시작하세요.</p>\n"
+- type: mushra
+  id: item_1
+  name: 문항 1
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/0nH78dDh0N0_00013.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/0nH78dDh0N0_00013.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/0nH78dDh0N0_00013.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/0nH78dDh0N0_00013.wav
+    mimi: configs/resources/recon_eval_data/mimi/0nH78dDh0N0_00013.wav
+- type: mushra
+  id: item_2
+  name: 문항 2
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/x6uYqmx31kE_00020.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/x6uYqmx31kE_00020.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/x6uYqmx31kE_00020.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/x6uYqmx31kE_00020.wav
+    mimi: configs/resources/recon_eval_data/mimi/x6uYqmx31kE_00020.wav
+- type: mushra
+  id: item_3
+  name: 문항 3
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/ya6VNZp-pXw_00015.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/ya6VNZp-pXw_00015.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/ya6VNZp-pXw_00015.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/ya6VNZp-pXw_00015.wav
+    mimi: configs/resources/recon_eval_data/mimi/ya6VNZp-pXw_00015.wav
+- type: mushra
+  id: item_4
+  name: 문항 4
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/I99R40TUF1s_00010.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/I99R40TUF1s_00010.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/I99R40TUF1s_00010.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/I99R40TUF1s_00010.wav
+    mimi: configs/resources/recon_eval_data/mimi/I99R40TUF1s_00010.wav
+- type: mushra
+  id: item_5
+  name: 문항 5
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/8cfyJEV7hP8_00009.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/8cfyJEV7hP8_00009.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/8cfyJEV7hP8_00009.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/8cfyJEV7hP8_00009.wav
+    mimi: configs/resources/recon_eval_data/mimi/8cfyJEV7hP8_00009.wav
+- type: mushra
+  id: item_6
+  name: 문항 6
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/dRr05CxK0jQ_00005.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/dRr05CxK0jQ_00005.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/dRr05CxK0jQ_00005.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/dRr05CxK0jQ_00005.wav
+    mimi: configs/resources/recon_eval_data/mimi/dRr05CxK0jQ_00005.wav
+- type: mushra
+  id: item_7
+  name: 문항 7
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/kp_GCjLq4qA_00001.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/kp_GCjLq4qA_00001.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/kp_GCjLq4qA_00001.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/kp_GCjLq4qA_00001.wav
+    mimi: configs/resources/recon_eval_data/mimi/kp_GCjLq4qA_00001.wav
+- type: mushra
+  id: item_8
+  name: 문항 8
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
+    mimi: configs/resources/recon_eval_data/mimi/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
+- type: mushra
+  id: item_9
+  name: 문항 9
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/gETtCLtu1jA_00001.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/gETtCLtu1jA_00001.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/gETtCLtu1jA_00001.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/gETtCLtu1jA_00001.wav
+    mimi: configs/resources/recon_eval_data/mimi/gETtCLtu1jA_00001.wav
+- type: mushra
+  id: item_10
+  name: 문항 10
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/RNYNkXzY5Hk_00011.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/RNYNkXzY5Hk_00011.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/RNYNkXzY5Hk_00011.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/RNYNkXzY5Hk_00011.wav
+    mimi: configs/resources/recon_eval_data/mimi/RNYNkXzY5Hk_00011.wav
+- type: mushra
+  id: item_11
+  name: 문항 11
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/DSGE2F5sTcg_00001.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/DSGE2F5sTcg_00001.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/DSGE2F5sTcg_00001.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/DSGE2F5sTcg_00001.wav
+    mimi: configs/resources/recon_eval_data/mimi/DSGE2F5sTcg_00001.wav
+- type: mushra
+  id: item_12
+  name: 문항 12
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/thghCiJZYwI_00009.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/thghCiJZYwI_00009.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/thghCiJZYwI_00009.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/thghCiJZYwI_00009.wav
+    mimi: configs/resources/recon_eval_data/mimi/thghCiJZYwI_00009.wav
+- type: mushra
+  id: item_13
+  name: 문항 13
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/E50E5hbggyM_00006.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/E50E5hbggyM_00006.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/E50E5hbggyM_00006.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/E50E5hbggyM_00006.wav
+    mimi: configs/resources/recon_eval_data/mimi/E50E5hbggyM_00006.wav
+- type: mushra
+  id: item_14
+  name: 문항 14
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/gegIAYxfpVA_00007.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/gegIAYxfpVA_00007.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/gegIAYxfpVA_00007.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/gegIAYxfpVA_00007.wav
+    mimi: configs/resources/recon_eval_data/mimi/gegIAYxfpVA_00007.wav
+- type: mushra
+  id: item_15
+  name: 문항 15
+  content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
+  showWaveform: true
+  enableLooping: true
+  reference: configs/resources/recon_eval_data/gt/ravdess_sad-spk_01-intensity_01-statement_02-repetition_01.wav
+  createAnchor35: false
+  createAnchor70: false
+  randomize: true
+  showConditionNames: false
+  stimuli:
+    dualcodec: configs/resources/recon_eval_data/dualcodec/ravdess_sad-spk_01-intensity_01-statement_02-repetition_01.wav
+    lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/ravdess_sad-spk_01-intensity_01-statement_02-repetition_01.wav
+    lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/ravdess_sad-spk_01-intensity_01-statement_02-repetition_01.wav
+    mimi: configs/resources/recon_eval_data/mimi/ravdess_sad-spk_01-intensity_01-statement_02-repetition_01.wav
+- type: finish
+  name: 평가 완료
+  content: '<h2>평가해주셔서 감사합니다!</h2>
 
-  - type: mushra
-    id: item_1
-    name: 문항 1
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/0nH78dDh0N0_00013.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/0nH78dDh0N0_00013.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/0nH78dDh0N0_00013.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/0nH78dDh0N0_00013.wav
-      mimi: configs/resources/recon_eval_data/mimi/0nH78dDh0N0_00013.wav
+    <p>아래 정보를 입력한 후 제출해주세요.</p>
 
-  - type: mushra
-    id: item_2
-    name: 문항 2
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/x6uYqmx31kE_00020.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/x6uYqmx31kE_00020.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/x6uYqmx31kE_00020.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/x6uYqmx31kE_00020.wav
-      mimi: configs/resources/recon_eval_data/mimi/x6uYqmx31kE_00020.wav
-
-  - type: mushra
-    id: item_3
-    name: 문항 3
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/ya6VNZp-pXw_00015.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/ya6VNZp-pXw_00015.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/ya6VNZp-pXw_00015.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/ya6VNZp-pXw_00015.wav
-      mimi: configs/resources/recon_eval_data/mimi/ya6VNZp-pXw_00015.wav
-
-  - type: mushra
-    id: item_4
-    name: 문항 4
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/I99R40TUF1s_00010.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/I99R40TUF1s_00010.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/I99R40TUF1s_00010.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/I99R40TUF1s_00010.wav
-      mimi: configs/resources/recon_eval_data/mimi/I99R40TUF1s_00010.wav
-
-  - type: mushra
-    id: item_5
-    name: 문항 5
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/8cfyJEV7hP8_00009.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/8cfyJEV7hP8_00009.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/8cfyJEV7hP8_00009.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/8cfyJEV7hP8_00009.wav
-      mimi: configs/resources/recon_eval_data/mimi/8cfyJEV7hP8_00009.wav
-
-  - type: mushra
-    id: item_6
-    name: 문항 6
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/dRr05CxK0jQ_00005.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/dRr05CxK0jQ_00005.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/dRr05CxK0jQ_00005.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/dRr05CxK0jQ_00005.wav
-      mimi: configs/resources/recon_eval_data/mimi/dRr05CxK0jQ_00005.wav
-
-  - type: mushra
-    id: item_7
-    name: 문항 7
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/kp_GCjLq4qA_00001.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/kp_GCjLq4qA_00001.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/kp_GCjLq4qA_00001.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/kp_GCjLq4qA_00001.wav
-      mimi: configs/resources/recon_eval_data/mimi/kp_GCjLq4qA_00001.wav
-
-  - type: mushra
-    id: item_8
-    name: 문항 8
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
-      mimi: configs/resources/recon_eval_data/mimi/ravdess_angry-spk_04-intensity_01-statement_01-repetition_01.wav
-
-  - type: mushra
-    id: item_9
-    name: 문항 9
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/gETtCLtu1jA_00001.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/gETtCLtu1jA_00001.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/gETtCLtu1jA_00001.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/gETtCLtu1jA_00001.wav
-      mimi: configs/resources/recon_eval_data/mimi/gETtCLtu1jA_00001.wav
-
-  - type: mushra
-    id: item_10
-    name: 문항 10
-    content: 5개 조건에 대해, 음성의 품질만 1~100점으로 평가해 주세요.
-    showWaveform: true
-    enableLooping: true
-    reference: configs/resources/recon_eval_data/gt/RNYNkXzY5Hk_00011.wav
-    createAnchor35: false
-    createAnchor70: false
-    randomize: true
-    showConditionNames: false
-    stimuli:
-      dualcodec: configs/resources/recon_eval_data/dualcodec/RNYNkXzY5Hk_00011.wav
-      lmspt-dc: configs/resources/recon_eval_data/lmspt-dc/RNYNkXzY5Hk_00011.wav
-      lmspt-mimi: configs/resources/recon_eval_data/lmspt-mimi/RNYNkXzY5Hk_00011.wav
-      mimi: configs/resources/recon_eval_data/mimi/RNYNkXzY5Hk_00011.wav
-
-  # 완료 페이지 (이름 입력 및 결과 제출)
-  - type: finish
-    name: 평가 완료
-    content: |
-      <h2>평가해주셔서 감사합니다!</h2>
-      <p>아래 정보를 입력한 후 제출해주세요.</p>
-    showResults: false
-    writeResults: true
-    questionnaire:
-      - type: text
-        label: 이름
-        name: name
-        optional: false
+    '
+  showResults: false
+  writeResults: true
+  questionnaire:
+  - type: text
+    label: 이름
+    name: name
+    optional: false
