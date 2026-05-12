@@ -13,7 +13,8 @@ function checkOrientation() {//when changing from potrait to landscape change to
 }
 
 window.onresize = function(event) {
-  if (pageManager.getCurrentPage() && pageManager.getCurrentPage().isMushra == true) {
+  // Guard against early resize events before pageManager is initialized.
+  if (pageManager && pageManager.getCurrentPage && pageManager.getCurrentPage() && pageManager.getCurrentPage().isMushra == true) {
     pageManager.getCurrentPage().renderCanvas("mushra_items");
   }
 
